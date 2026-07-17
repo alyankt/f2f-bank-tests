@@ -137,6 +137,13 @@ docker compose down -v
 
 ## Запуск тестов:
 
+Перейдите в папку с тестами:
+
+```bash
+cd tests
+```
+Запуск всех тестов:
+
 ```bash
 npx playwright test
 ```
