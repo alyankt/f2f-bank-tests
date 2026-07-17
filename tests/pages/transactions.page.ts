@@ -7,14 +7,16 @@ export class TransactionsPage {
     readonly cancelButton: Locator;
     readonly titleTransactions: Locator;
     readonly enterSum: Locator;
+    readonly addBalanceHeader: Locator;
 
     constructor(page: Page) {
         this.page = page;
         this.addBalanceButton = page.getByRole('button', { name: 'Add balance' });
         this.addButton = page.getByRole('button', { name: 'Add', exact: true });
         this.cancelButton = page.getByRole('button', { name: 'Cancel' });
-        this.titleTransactions = page.getByRole('heading', { name: 'Add balance' });
+        this.titleTransactions = page.getByRole('heading', { name: 'Transactions' });
         this.enterSum = page.locator('[name="balance"]');
+        this.addBalanceHeader = page.getByRole('heading', { name: 'Add balance' });
     }
 
    async addBalance(sum: string) {

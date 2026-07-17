@@ -28,6 +28,7 @@ test('Пополнение своего баланса', async ({ page }) => {
 
     await mainPage.transactionsButton.click();
     await transactionPage.addBalance('500');
+    await expect(transactionPage.titleTransactions).toBeVisible();
 });
 
 test('Отмена пополнения баланса', async ({ page }) => {
@@ -40,6 +41,7 @@ test('Отмена пополнения баланса', async ({ page }) => {
     await mainPage.transactionsButton.click();
     await transactionPage.addBalanceButton.click();
     await transactionPage.cancelButton.click();
+    await expect(transactionPage.titleTransactions).toBeVisible();
 });
 
 test('Пополнение своего баланса с невалидными данными', async ({ page }) => {
@@ -51,6 +53,7 @@ test('Пополнение своего баланса с невалидными
 
     await mainPage.transactionsButton.click();
     await transactionPage.addBalance('0');
+    await expect(transactionPage.addBalanceHeader).toBeVisible();
 });
 
 test('Пополнение своего баланса без ввода суммы', async ({ page }) => {
@@ -63,6 +66,7 @@ test('Пополнение своего баланса без ввода сум�
     await mainPage.transactionsButton.click();
     await transactionPage.addBalance('');
     await transactionPage.addButton.click();
+    await expect(transactionPage.addBalanceHeader).toBeVisible();
 });
 
 test('Отмена пополнения своего баланса без ввода суммы', async ({ page }) => {
@@ -75,4 +79,5 @@ test('Отмена пополнения своего баланса без вв�
     await mainPage.transactionsButton.click();
     await transactionPage.addBalance('');
     await transactionPage.cancelButton.click();
+    await expect(transactionPage.titleTransactions).toBeVisible();
 });
